@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 
 export default function App() {
   const [name, setName] = useState('Danno');
+  const [age, setAge] = useState(37)
+  //passes object in
+  // const [anyname, setAnyname] = useState({ name: 'Danno', age: 37});
 
-  const clickName = () => {
-    setName('bobby!')
-  }
+  // const clickName = () => {
+  //   setName('bobby!');
+  //   setAnyname({ name: 'Johnny', age: 65})
+  // }
 
   return (
     <View style={styles.container}>
@@ -14,13 +18,25 @@ export default function App() {
         <Text style={styles.boldText}>This is a header!!</Text>
       </View>
       <View style={styles.bodyText}>
-        <Text> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </Text>
+        <Text> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
       </View>
-      <Text>My name is (written with a React hook)... {name} </Text>
-      <Text></Text>
-      <View style={styles.buttonContainer}>
+      <Text>Enter Name:</Text>
+      <TextInput 
+        style={styles.nameInput}
+        placeholder='e.g. John Doe'
+        onChangeText={(val)=> setName(val)} />
+
+      <Text>Enter Age:</Text>
+      <TextInput 
+        style={styles.nameInput}
+        placeholder='e.g. 18'
+        onChangeText={(val)=> setAge(val)}
+        />
+
+      <Text>Their name is {name} and their age is {age} (written with a React Hook</Text>
+      {/* <View style={styles.buttonContainer}>
         <Button title='update name here' onPress={clickName}/>
-      </View>
+      </View> */}
     </View>
   );
 }
@@ -43,7 +59,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'yellow',
     padding: 20,
   },
-  buttonContainer: {
-    marginTop: 20
+  nameInput: {
+    borderWidth: 1,
+    borderColor: '#777',
+    padding: 4,
+    margin: 10,
+    width: 200,
   }
 });
