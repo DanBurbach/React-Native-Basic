@@ -3,7 +3,8 @@ import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 
 export default function App() {
   const [name, setName] = useState('Danno');
-  const [age, setAge] = useState(37)
+
+  const [age, setAge] = useState('37')
   //passes object in
   // const [anyname, setAnyname] = useState({ name: 'Danno', age: 37});
 
@@ -14,29 +15,39 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+
       <View style={styles.header}>
         <Text style={styles.boldText}>This is a header!!</Text>
       </View>
+
       <View style={styles.bodyText}>
         <Text> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
       </View>
+
       <Text>Enter Name:</Text>
-      <TextInput 
+      <TextInput
         style={styles.nameInput}
+        multiline
+        required
         placeholder='e.g. John Doe'
         onChangeText={(val)=> setName(val)} />
 
       <Text>Enter Age:</Text>
       <TextInput 
         style={styles.nameInput}
+        required
+        keyboardType='numeric'
         placeholder='e.g. 18'
         onChangeText={(val)=> setAge(val)}
         />
 
-      <Text>Their name is {name} and their age is {age} (written with a React Hook</Text>
+      <Text>Name: {name} and Age: {age}</Text>
+      <Text>(written with a React Hook</Text>
+
       {/* <View style={styles.buttonContainer}>
         <Button title='update name here' onPress={clickName}/>
       </View> */}
+
     </View>
   );
 }
