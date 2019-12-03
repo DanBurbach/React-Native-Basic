@@ -4,6 +4,10 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 export default function App() {
   const [name, setName] = useState('Danno');
 
+  const clickName = () => {
+    setName('bobby!')
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -15,7 +19,7 @@ export default function App() {
       <Text>My name is (written with a React hook)... {name} </Text>
       <Text></Text>
       <View style={styles.buttonContainer}>
-        <Button title='update name here'/>
+        <Button title='update name here' onPress={clickName}/>
       </View>
     </View>
   );
@@ -38,5 +42,8 @@ const styles = StyleSheet.create({
   bodyText: {
     backgroundColor: 'yellow',
     padding: 20,
+  },
+  buttonContainer: {
+    marginTop: 20
   }
 });
