@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, FlatList, TextInput } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  TextInput,
+  ScrollView
+} from 'react-native';
 
 export default function App() {
-  const [name, seName] = useState('Danno');
+  const [name, setName] = useState('Danno');
 
   const [age, setAge] = useState('37')
 
@@ -16,58 +23,58 @@ const [people, setPeople] = useState([
     { name: 'bowser', id: '7' },
   ]);
 
-  //passes object in
-  // const [anyname, setAnyname] = useState({ name: 'Danno', age: 37});
-
-  // const clickName = () => {
-  //   setName('bobby!');
-  //   setAnyname({ name: 'Johnny', age: 65})
-  // }
-
   return (
     <View style={styles.container}>
+      <ScrollView>
+        <View style={styles.header}>
+          <Text style={styles.boldText}>This is a header!!</Text>
+        </View>
 
-      <View style={styles.header}>
-        <Text style={styles.boldText}>This is a header!!</Text>
-      </View>
+        <View style={styles.bodyText}>
+          <Text> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
+        </View>
 
-      <View style={styles.bodyText}>
-        <Text> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
-      </View>
+        <Text>Enter Name:</Text>
+        <TextInput
+          style={styles.nameInput}
+          multiline
+          required
+          placeholder='e.g. John Doe'
+          onChangeText={(val)=> setName(val)} />
 
-      <Text>Enter Name:</Text>
-      <TextInput
-        style={styles.nameInput}
-        multiline
-        required
-        placeholder='e.g. John Doe'
-        onChangeText={(val)=> setName(val)} />
+        <Text>Enter Age:</Text>
+        <TextInput 
+          style={styles.nameInput}
+          required
+          keyboardType='numeric'
+          placeholder='e.g. 18'
+          onChangeText={(val)=> setAge(val)}
+          />
 
-      <Text>Enter Age:</Text>
-      <TextInput 
-        style={styles.nameInput}
-        required
-        keyboardType='numeric'
-        placeholder='e.g. 18'
-        onChangeText={(val)=> setAge(val)}
+        <Text>Name: {name} and Age: {age}</Text>
+        <Text>(written with a React Hook)</Text>
+
+        {/* <View style={styles.buttonContainer}>
+          <Button title='update name here' onPress={clickName}/>
+        </View> */}
+
+        <FlatList 
+          numColumns={2}
+          keyExtractor={(item) => item.id} 
+          data={people} 
+          renderItem={({ item }) => ( 
+            <Text style={styles.item}>{item.name}</Text>
+          )}
         />
 
-      <Text>Name: {name} and Age: {age}</Text>
-      <Text>(written with a React Hook</Text>
-
-      {/* <View style={styles.buttonContainer}>
-        <Button title='update name here' onPress={clickName}/>
-      </View> */}
-
-      <FlatList 
-        numColumns={1}
-        keyExtractor={(item) => item.id} 
-        data={people} 
-        renderItem={({ item }) => ( 
-          <Text style={styles.item}>{item.name}</Text>
-        )}
-      />
-
+        <ScrollView>
+          { people.map((item) => (
+              <View key={item.id}>
+                <Text style={styles.item2}>{item.name}</Text>
+              </View>
+            ))}
+        </ScrollView>
+      </ScrollView>
     </View>
   );
 }
@@ -97,15 +104,20 @@ const styles = StyleSheet.create({
     borderColor: '#777',
     padding: 4,
     margin: 10,
-    width: 200,
+    width: 300,
   },
   item: {
     flex: 1,
     marginHorizontal: 10,
     marginTop: 10,
-    padding: 80,
+    padding: 50,
     backgroundColor: 'lightblue',
     fontSize: 18,
-    textAlign: "center",
+  },
+  item2: {
+    marginTop: 10,
+    padding: 30,
+    backgroundColor: 'orange',
+    fontSize: 18,
   },
 });
