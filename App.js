@@ -5,7 +5,8 @@ import {
   View,
   FlatList,
   TextInput,
-  ScrollView
+  ScrollView,
+  TouchableOpacity
 } from 'react-native';
 
 export default function App() {
@@ -13,15 +14,21 @@ export default function App() {
 
   const [age, setAge] = useState('37')
 
-const [people, setPeople] = useState([
-    { name: 'shaun', id: '1' },
-    { name: 'yoshi', id: '2' },
-    { name: 'mario', id: '3' },
-    { name: 'luigi', id: '4' },
-    { name: 'peach', id: '5' },
-    { name: 'toad', id: '6' },
-    { name: 'bowser', id: '7' },
-  ]);
+  const [people, setPeople] = useState([
+      { name: 'shaun', id: '1' },
+      { name: 'yoshi', id: '2' },
+      { name: 'mario', id: '3' },
+      { name: 'luigi', id: '4' },
+      { name: 'peach', id: '5' },
+      { name: 'toad', id: '6' },
+      { name: 'bowser', id: '7' },
+    ]);
+
+  const touchNameRemoverHandler = (id) => {
+    setPeople((prevPeople) => {
+      return prevPeople.filter(person => person.id !=id);
+    });
+  };
 
   return (
     <View style={styles.container}>
@@ -58,15 +65,19 @@ const [people, setPeople] = useState([
           <Button title='update name here' onPress={clickName}/>
         </View> */}
 
+        {/* better for performance, only loads when on screen*/}
         <FlatList 
-          numColumns={2}
+          numColumns={1}
           keyExtractor={(item) => item.id} 
           data={people} 
-          renderItem={({ item }) => ( 
-            <Text style={styles.item}>{item.name}</Text>
+          renderItem={({ item }) => (
+            <TouchableOpacity onPress={() => touchNameRemoverHandler(item.id)}>
+              <Text style={styles.item}>{item.name}</Text>
+            </TouchableOpacity> 
           )}
         />
 
+        {/* loads entire list all at once */}
         <ScrollView>
           { people.map((item) => (
               <View key={item.id}>
@@ -74,6 +85,7 @@ const [people, setPeople] = useState([
               </View>
             ))}
         </ScrollView>
+
       </ScrollView>
     </View>
   );
@@ -108,9 +120,8 @@ const styles = StyleSheet.create({
   },
   item: {
     flex: 1,
-    marginHorizontal: 10,
     marginTop: 10,
-    padding: 50,
+    padding: 30,
     backgroundColor: 'lightblue',
     fontSize: 18,
   },
