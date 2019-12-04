@@ -10,10 +10,13 @@ import {
 } from 'react-native';
 
 export default function App() {
+  // hook for setting Name
   const [name, setName] = useState('Danno');
 
+  // hook for setting age
   const [age, setAge] = useState('37')
 
+// hook for setting listing of people, defined by id (could be written as key)
   const [people, setPeople] = useState([
       { name: 'shaun', id: '1' },
       { name: 'yoshi', id: '2' },
@@ -24,6 +27,7 @@ export default function App() {
       { name: 'bowser', id: '7' },
     ]);
 
+  // handler to return the id listing of people and then remove them from the list
   const touchNameRemoverHandler = (id) => {
     setPeople((prevPeople) => {
       return prevPeople.filter(person => person.id !=id);
@@ -71,6 +75,7 @@ export default function App() {
           keyExtractor={(item) => item.id} 
           data={people} 
           renderItem={({ item }) => (
+            // onPress handler to remove names when tapped
             <TouchableOpacity onPress={() => touchNameRemoverHandler(item.id)}>
               <Text style={styles.item}>{item.name}</Text>
             </TouchableOpacity> 
