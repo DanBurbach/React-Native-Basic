@@ -107,12 +107,13 @@ const styles = StyleSheet.create({
     margin: 20,
   },
   header: {
-    marginTop: 50,
+    // marginTop: 50,
     backgroundColor: 'lightgreen',
     padding: 20,
   },
   boldText: {
     fontWeight: 'bold',
+    fontSize: 20,
   },
   bodyText: {
     backgroundColor: 'yellow',
