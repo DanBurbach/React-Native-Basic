@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
-import Header from '../components/header';
+import Header from '../components/ToDoHeader';
+import TodoItem from '../components/TodoItem';
+
 
 export default function TodoScreen() {
     const [todo, setTodo] = useState([
@@ -9,18 +11,24 @@ export default function TodoScreen() {
         { text: 'play Civ V and BFV', key: '3'}
     ]);
 
+    const pressHandler = (key) => {
+      setTodo((prevTodos) => {
+        return prevTodos.filter(todos => todos.key != key);
+      })
+    }
+
     return (
         <View style={styles.container}>
             <Header />
             <View style={styles.content}>
-                {/* add your todo form */}
+                {/* todo form here*/}
                 <View style={styles.list}>
                     <FlatList
                         data={todo}
                         renderItem={({ item }) => (
-                            <Text>{item.text}</Text>
+                            <TodoItem item={item} pressHandler={pressHandler}/>
                         )}
-                        />
+                    />
                 </View>
             </View>
         </View>
