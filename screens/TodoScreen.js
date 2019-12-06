@@ -1,27 +1,45 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import Header from '../components/ToDoHeader';
 import TodoItem from '../components/TodoItem';
+import ToDoAdd from '../components/ToDoAdd';
 
 
 export default function TodoScreen() {
     const [todo, setTodo] = useState([
         { text: 'find work', key: '1' },
         { text: 'do laundry', key: '2'},
-        { text: 'play Civ V and BFV', key: '3'}
+        { text: 'play Civ V', key: '3'}
     ]);
 
     const pressHandler = (key) => {
       setTodo((prevTodos) => {
         return prevTodos.filter(todos => todos.key != key);
-      })
+      });
+    };
+
+    const submitHandler = (text) => {
+    if(text.length > 3){
+      setText('');
+      setTodo(prevTodos => {
+        return [
+          { text, key: Math.random().toString() },
+          ...prevTodos
+        ];
+      });
+    } else {
+      Alert.alert('OOPS', 'Todo must be over 3 characters long', [
+        {text: 'Understood', onPress: () => console.log('alert closed') }
+      ]);
     }
+  };
 
     return (
+      <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
         <View style={styles.container}>
             <Header />
             <View style={styles.content}>
-                {/* todo form here*/}
+                <ToDoAdd submitHandler={submitHandler} />
                 <View style={styles.list}>
                     <FlatList
                         data={todo}
@@ -32,6 +50,7 @@ export default function TodoScreen() {
                 </View>
             </View>
         </View>
+      </TouchableWithoutFeedback>
     );
 }
 
