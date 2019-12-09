@@ -12,6 +12,7 @@ const config = Platform.select({
   default: {},
 });
 
+// home page navigation =============================
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
@@ -34,6 +35,7 @@ HomeStack.navigationOptions = {
 };
 HomeStack.path = '';
 
+// listing examples ================================
 const ListsStack = createStackNavigator(
   {
     Lists: ListsScreen,
@@ -43,11 +45,15 @@ const ListsStack = createStackNavigator(
 ListsStack.navigationOptions = {
   tabBarLabel: 'Lists',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+    <TabBarIcon 
+      focused={focused} 
+      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
   ),
 };
 ListsStack.path = '';
 
+
+// todo list example ===============================
 const TodoStack = createStackNavigator(
   {
     Todo: TodoScreen,
@@ -57,7 +63,9 @@ const TodoStack = createStackNavigator(
 TodoStack.navigationOptions = {
   tabBarLabel: 'Todo',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    <TabBarIcon 
+      focused={focused} 
+      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
   ),
 };
 TodoStack.path = '';
