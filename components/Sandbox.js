@@ -2,41 +2,50 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function Sandbox() {
-    return (
+  return (
         <View style={styles.container}>
-            <Text styles={styles.boxOne}> One </Text>
-            <Text styles={styles.boxTwo}> Two </Text>
-            <Text styles={styles.boxThree}> Three </Text>
-            <Text styles={styles.boxFour}> Four </Text>
-            <Text styles={styles.boxFive}> Five </Text>
+            <Text style={styles.boxOne}>One</Text>
+            <Text style={styles.boxTwo}>Two</Text>
+            <Text style={styles.boxThree}>Three</Text>
+            <Text style={styles.boxFour}>Four</Text>
+            <Text style={styles.boxFive}>Five</Text>
         </View>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
     container: {
         // flex takes up whole page at setting of 1
         // flex: 1,
-        paddingTop: 40,
-        // backgroundColor: '#ddd',
+        backgroundColor: '#ddd',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        height: '100%',
+
     },
     boxOne: {
-        backgroundColor: 'rgb(43,12,8)',
+        flex: 1,
+        backgroundColor: 'skyblue',
         padding: 10,
     },
     boxTwo: {
+        flex: 1,
         backgroundColor: 'gold',
         padding: 10,
     },
     boxThree: {
+        flex: 1,
         backgroundColor: 'pink',
         padding: 10,
     },
     boxFour: {
+        flex: 1,
         backgroundColor: 'yellow',
         padding: 10,
     },
     boxFive: {
+        flex: 1,
         backgroundColor: 'violet',
         padding: 10,
     }
