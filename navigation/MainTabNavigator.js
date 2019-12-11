@@ -6,6 +6,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import ListsScreen from '../screens/ListsScreen';
 import TodoScreen from '../screens/TodoScreen';
+import FlexboxScreen from '../screens/FlexboxScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -52,6 +53,28 @@ ListsStack.navigationOptions = {
 };
 ListsStack.path = '';
 
+// Flexbox examples ===================================
+const FlexboxStack = createStackNavigator({
+    Flexbox: FlexboxScreen,
+  },
+  config
+);
+FlexboxStack.navigationOptions = {
+  tabBarLabel: 'Flexbox',
+  tabBarIcon: ({
+    focused
+  }) => ( <
+    TabBarIcon focused = {
+      focused
+    }
+    name = {
+      Platform.OS === 'ios' ? 'ios-link' : 'md-link'
+    }
+    />
+  ),
+};
+FlexboxStack.path = '';
+
 
 // todo list example ===============================
 const TodoStack = createStackNavigator(
@@ -73,6 +96,7 @@ TodoStack.path = '';
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   ListsStack,
+  FlexboxStack,
   TodoStack,
 });
 
