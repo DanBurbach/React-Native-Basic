@@ -6,6 +6,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import ListsScreen from '../screens/ListsScreen';
 import TodoScreen from '../screens/TodoScreen';
+import APICallScreen from '../screens/APICallScreen';
 import FlexboxScreen from '../screens/FlexboxScreen';
 
 const config = Platform.select({
@@ -61,10 +62,8 @@ const FlexboxStack = createStackNavigator({
 );
 FlexboxStack.navigationOptions = {
   tabBarLabel: 'Flexbox',
-  tabBarIcon: ({
-    focused
-  }) => ( <
-    TabBarIcon focused = {
+  tabBarIcon: ({ focused }) => ( 
+    <TabBarIcon focused = {
       focused
     }
     name = {
@@ -75,10 +74,25 @@ FlexboxStack.navigationOptions = {
 };
 FlexboxStack.path = '';
 
+// todo list example =============================
+const APICallStack = createStackNavigator({
+    APICall: APICallScreen,
+  },
+  config
+);
+APICallStack.navigationOptions = {
+  tabBarLabel: 'APICall',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon 
+      focused={focused} 
+      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+  ),
+};
+APICallStack.path = '';
+
 
 // todo list example ===============================
-const TodoStack = createStackNavigator(
-  {
+const TodoStack = createStackNavigator({
     Todo: TodoScreen,
   },
   config
@@ -97,6 +111,7 @@ const tabNavigator = createBottomTabNavigator({
   HomeStack,
   ListsStack,
   FlexboxStack,
+  APICallStack,
   TodoStack,
 });
 
