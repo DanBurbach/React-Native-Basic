@@ -16,8 +16,9 @@ export default function Sandbox() {
 const styles = StyleSheet.create({
     container: {
         // flex takes up whole page at setting of 1
-        // flex: 1,
+        flex: 1,
         backgroundColor: '#ddd',
+        // everything inside the flex container becomes a flex item, default column
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
