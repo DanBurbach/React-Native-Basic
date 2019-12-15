@@ -22,11 +22,11 @@ Using [Fetch API](https://facebook.github.io/react-native/docs/network) and anot
 ### __Todo List__
 Built using React Hooks. This sets to state entered data (using a random.Math generated key id), displays set data in an ordered map list, and allows the user to delete entered (and button approved) list item on touch of item.
 
-### __Technologies Used__
+## __Technologies Used__
 
   React-Native, React, expo, jest, expo-linear-gradient, and react-native-gesture-handler.
 
-### __Version__
+## __Version__
 
 Beta v1.0
 
