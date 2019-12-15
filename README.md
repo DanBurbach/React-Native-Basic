@@ -3,23 +3,23 @@ A starter project exploring the basics of React Native
 
 ## Created By Daniel Burbach
 
-### Sections:
+## __Sections:__
 
-### Lists
+### __Lists__
 Built using React Hooks. Initial use of header, color use, and StyleSheets. Generation of list using map. Deletion of secondary list on click with use of a handler.
 
-### Flexbox
+### __Flexbox__
 A React-Native experimentation of Flexbox in React Native with StyleSheets layout.
 
-### Color Gradient
+### __Color Gradient__
 React-Native Animated gradient changer using an [online tutorial](https://medium.com/@GroundControl/animating-gradients-in-react-native-8853dbd97d02). Utilizing expo-linear-gradient and record the previous gradient as well as the current list of gradients to allow for smooth transition, and a const called tweener to incorporate new Animated Values. 
 
 Further examples also may incorprate start and endpoint animations of gradients.
 
-### API Call
+### __API Call__
 Using [Fetch API](https://facebook.github.io/react-native/docs/network) and another [online tutorial](https://www.youtube.com/watch?v=1yJu_4RkaIc). This gathers set API data, uses a false authentication for example purposes, and maps a list of generated data in React Native.
 
-### Todo List
+### __Todo List__
 Built using React Hooks. This sets to state entered data (using a random.Math generated key id), displays set data in an ordered map list, and allows the user to delete entered (and button approved) list item on touch of item.
 
 ### __Technologies Used__
@@ -28,7 +28,7 @@ Built using React Hooks. This sets to state entered data (using a random.Math ge
 
 ### __Version__
 
-Beta v2.0
+Beta v1.0
 
 ## License(s)
 ### Working Code is Licensed under the MIT license.
