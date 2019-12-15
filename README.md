@@ -7,6 +7,7 @@ A starter project exploring the basics of React Native
 
 ### __Lists__
 Built using React Hooks. Initial use of header, color use, and StyleSheets. Generation of list using map. Deletion of secondary list on click with use of a handler.
+[Follows online tutorial](https://www.youtube.com/watch?v=ur6I5m2nTvk&t=19s).
 
 ### __Flexbox__
 A React-Native experimentation of Flexbox in React Native with StyleSheets layout.
@@ -24,7 +25,7 @@ Built using React Hooks. This sets to state entered data (using a random.Math ge
 
 ## __Technologies Used__
 
-  React-Native, React, expo, jest, expo-linear-gradient, and react-native-gesture-handler.
+  React-Native, React, Expo, Jest, Expo-Linear-Gradient, and React-Native-Gesture-Handler.
 
 ## __Version__
 
