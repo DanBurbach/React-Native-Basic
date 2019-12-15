@@ -5,9 +5,10 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import ListsScreen from '../screens/ListsScreen';
-import TodoScreen from '../screens/TodoScreen';
-import APICallScreen from '../screens/APICallScreen';
 import FlexboxScreen from '../screens/FlexboxScreen';
+import ColorGradientScreen from '../screens/ColorGradientScreen';
+import APICallScreen from '../screens/APICallScreen';
+import TodoScreen from '../screens/TodoScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -74,6 +75,22 @@ FlexboxStack.navigationOptions = {
 };
 FlexboxStack.path = '';
 
+// Animated gradient examples ===================================
+const ColorGradientStack = createStackNavigator({
+    ColorGradient: ColorGradientScreen,
+  },
+  config
+);
+ColorGradientStack.navigationOptions = {
+  tabBarLabel: 'Color Gradient',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon 
+      focused={focused} 
+      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+  ),
+};
+ColorGradientStack.path = '';
+
 // todo list example =============================
 const APICallStack = createStackNavigator({
     APICall: APICallScreen,
@@ -111,6 +128,7 @@ const tabNavigator = createBottomTabNavigator({
   HomeStack,
   ListsStack,
   FlexboxStack,
+  ColorGradientStack,
   APICallStack,
   TodoStack,
 });
