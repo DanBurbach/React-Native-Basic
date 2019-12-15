@@ -30,8 +30,8 @@ HomeStack.navigationOptions = {
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
+          ? `ios-home`
+          : 'md-home'
       }
     />
   ),
@@ -50,7 +50,11 @@ ListsStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon 
       focused={focused} 
-      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+      name={
+        Platform.OS === 'ios' ?
+          `ios-list${focused ? '' : '-box'}` :
+          'md-list'}
+      />
   ),
 };
 ListsStack.path = '';
@@ -68,7 +72,7 @@ FlexboxStack.navigationOptions = {
       focused
     }
     name = {
-      Platform.OS === 'ios' ? 'ios-link' : 'md-link'
+      Platform.OS === 'ios' ? 'ios-albums' : 'md-albums'
     }
     />
   ),
@@ -86,7 +90,9 @@ ColorGradientStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon 
       focused={focused} 
-      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+      name={
+        Platform.OS === 'ios' ? 'ios-options' : 'md-options'
+    } />
   ),
 };
 ColorGradientStack.path = '';
@@ -102,7 +108,7 @@ APICallStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon 
       focused={focused} 
-      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+      name={Platform.OS === 'ios' ? 'ios-copy' : 'md-copy'} />
   ),
 };
 APICallStack.path = '';
@@ -119,7 +125,7 @@ TodoStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon 
       focused={focused} 
-      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+      name={Platform.OS === 'ios' ? 'ios-list' : 'md-list'} />
   ),
 };
 TodoStack.path = '';
